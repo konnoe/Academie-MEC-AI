@@ -1,3 +1,6 @@
+import { Card } from '../../components/Card/Card';
+import { Header } from '../../components/Header/Header';
+
 const questions = [
   ['Français — ponctuation', 'Réécris correctement : ok peux tu cree des onglet deronlant sur sa ?', 'Ok, peux-tu créer des onglets déroulants sur ça ?'],
   ['Gestion — pourcentage', 'CA 12 400 €, coût matière 28 %. Calcule le coût matière.', '12 400 × 28 / 100 = 3 472 €'],
@@ -7,20 +10,15 @@ const questions = [
 export function DiagnosticPage() {
   return (
     <>
-      <section className="hero">
-        <span className="badge">Diagnostic</span>
-        <h1>Diagnostic personnalisé</h1>
-        <p>Première base pour repérer les lacunes réelles.</p>
-      </section>
-
-      <section className="panel">
+      <Header title="Diagnostic personnalisé" subtitle="Des exercices ciblés sur tes lacunes réelles, pas des exercices génériques." />
+      <section className="dashboard-grid">
         {questions.map(([title, prompt, correction]) => (
-          <article className="exercise" key={title}>
+          <Card key={title}>
             <h3>{title}</h3>
             <p>{prompt}</p>
             <textarea placeholder="Ta réponse..." />
             <details><summary>Voir la correction possible</summary><p>{correction}</p></details>
-          </article>
+          </Card>
         ))}
       </section>
     </>

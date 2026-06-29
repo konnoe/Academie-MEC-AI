@@ -1,3 +1,6 @@
+import { Card } from '../../components/Card/Card';
+import { Header } from '../../components/Header/Header';
+
 const steps = [
   ['J+1', 'Relire la règle + refaire 1 exercice'],
   ['J+3', 'Faire un exercice sans aide'],
@@ -9,18 +12,10 @@ const steps = [
 export function RevisionsPage() {
   return (
     <>
-      <section className="hero">
-        <span className="badge">Mémoire</span>
-        <h1>Révisions espacées</h1>
-        <p>Revoir peu, mais au bon moment.</p>
-      </section>
-
-      <section className="panel">
-        <table>
-          <thead><tr><th>Moment</th><th>Action</th></tr></thead>
-          <tbody>{steps.map(([when, action]) => <tr key={when}><td>{when}</td><td>{action}</td></tr>)}</tbody>
-        </table>
-      </section>
+      <Header title="Révisions espacées" subtitle="Revoir peu, mais au bon moment." />
+      <Card>
+        <table><thead><tr><th>Moment</th><th>Action</th></tr></thead><tbody>{steps.map(([when, action]) => <tr key={when}><td>{when}</td><td>{action}</td></tr>)}</tbody></table>
+      </Card>
     </>
   );
 }
